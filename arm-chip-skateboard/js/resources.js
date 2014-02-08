@@ -6,9 +6,9 @@ var Resources = {
   X: 680,
   Y: 0,
   ICONWIDTH:20,
-  ICONCOLS:3,
+  ICONCOLS:4,
   ICONROWS:9,
-  RESOURCEWIDTH:160,
+  RESOURCEWIDTH:200,
   color:"#00FF00",
   textcolor:"#00FF00",
   resourceArrow: new createjs.Shape(),
@@ -72,18 +72,18 @@ var Resources = {
     this.surface.x = this.X;
     this.surface.y = this.Y;
 	var txt = new createjs.Text("Free Agents", "12px GameFont", "#00ff00");
-	txt.x = this.ICONCOLS*this.ICONWIDTH+this.RESOURCEWIDTH/2;
+	txt.x = this.RESOURCEWIDTH/2;
 	txt.y = 15;
 	txt.textAlign="center";
 	//Load resource text and position
 	this.resourceText= new createjs.Text("0","30px GameFont",this.color);
-	this.resourceText.x = this.ICONCOLS*this.ICONWIDTH+this.RESOURCEWIDTH/2;
+	this.resourceText.x = this.RESOURCEWIDTH/2;
 	this.resourceText.y = 50;
 	this.resourceText.textAlign="center";
 	
 	//Load ghost resource text and position
 	this.resourceText2= new createjs.Text("0","30px GameFont",this.color);
-	this.resourceText2.x = this.ICONCOLS*this.ICONWIDTH+this.RESOURCEWIDTH/2;
+	this.resourceText2.x = this.RESOURCEWIDTH/2;
 	this.resourceText2.y = 190;
 	this.resourceText2.textAlign="center";
 	
@@ -91,11 +91,11 @@ var Resources = {
 	//Load resource arrow
 	this.resourceArrow.graphics.beginFill(this.color).drawRect(25,0,10,60);
 	this.resourceArrow.graphics.beginFill(this.color).moveTo(0,60).lineTo(60,60).lineTo(30,80);
-	this.resourceArrow.x = this.ICONCOLS*this.ICONWIDTH+this.RESOURCEWIDTH/2 - 30;
+	this.resourceArrow.x = this.RESOURCEWIDTH/2 - 30;
 	this.resourceArrow.y = 90;
 	this.resourceArrowRed.graphics.beginFill("#ff0000").drawRect(25,0,10,60);
 	this.resourceArrowRed.graphics.beginFill("#ff0000").moveTo(0,60).lineTo(60,60).lineTo(30,80);
-	this.resourceArrowRed.x = this.ICONCOLS*this.ICONWIDTH+this.RESOURCEWIDTH/2 - 30;
+	this.resourceArrowRed.x = this.RESOURCEWIDTH/2 - 30;
 	this.resourceArrowRed.y = 90;
 	
 	//Load play button
