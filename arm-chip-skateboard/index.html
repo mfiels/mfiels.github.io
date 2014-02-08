@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+        <style>
+            @font-face {
+                font-family: GameFont;
+                src: url(fonts/pixelmix.ttf);
+            }
+            body {
+                background: #000000;
+            }
+            #canvas {
+                position: absolute;
+                top: 50%; left: 50%;
+                width: 880px;
+                height: 650px;
+                margin: -325px 0 0 -440px;
+            }
+        </style>
+	</head>
+	<body>
+        <div id="wrapper">
+    		<canvas id="canvas" width="880" height="650"></canvas>
+        </div>
+
+    	<!-- create.js lib -->
+		<script src="js/lib/createjs-2013.12.12.min.js"></script> 
+		<!-- jquery -->
+		<script src="js/lib/jquery-1.10.2.min.js"></script>
+
+    	<!-- game stuff -->
+        <script src="js/loader.js"></script>
+        <script src="js/constants.js"></script>
+    	<script src="js/canvas.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/resources.js"></script>
+        <script src="js/activities.js"></script>
+        <script src="js/textbox.js"></script>
+        <script src="js/dudes.js"></script>
+        <script src="js/modal.js"></script>
+        <script src="js/riskmeter.js"></script>
+        <script src="js/cheats.js"></script>
+		<script src="js/graphs.js"></script>
+        <script>
+    		$(document).ready(function(){
+    			Game.init();
+    		});
+    	</script>
+	</body>
+</html>
