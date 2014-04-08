@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Days Left</title>
+    <style>
+      p, h1 {
+        text-align: center;
+        font-family: serif;
+        color: white;
+      }
+
+      h1 {
+        font-size: 300%;
+        font-weight: normal;
+      }
+
+      p {
+        font-size: 200%;
+      }
+
+      body {
+        background: #990000;
+        padding-top: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Last Day of Class Countdown</h1>
+    <p><span id="time-left"></span></p>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        var timeLeft = $('#time-left');
+        var targetDate = new Date(2014, 4, 9, 0, 0, 0);
+
+        function pad(string, amount) {
+          while (string.length < amount) {
+            string = '0' + string;
+          }
+          return string;
+        }
+
+        function getCountdownString(millis) {
+          if (millis <= 0) {
+            return 'WOOHOO!';
+          }
+
+          var daysLeft = Math.floor(millis / (24 * 60 * 60 * 1000));
+          millis -= daysLeft * 24 * 60 * 60 * 1000;
+          var hoursLeft = Math.floor(millis / (60 * 60 * 1000));
+          millis -= hoursLeft * 60 * 60 * 1000;
+          var minutesLeft = Math.floor(millis / (60 * 1000));
+          millis -= minutesLeft * 60 * 1000;
+          var secondsLeft = Math.floor(millis / 1000);
+          return daysLeft 
+              + ':' + pad(hoursLeft + '', 2) 
+              + ':' + pad(minutesLeft + '', 2) 
+              + ':' + pad(secondsLeft + '', 2);
+        }
+
+        function tick() {
+          var now = new Date();
+          var difference = targetDate - now;
+          var countdownString = getCountdownString(difference);
+
+          timeLeft.text(countdownString);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+      });
+    </script>
+  </body>
+</html>
