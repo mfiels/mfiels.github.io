@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            p {
+                margin: 0;
+                padding: 0;
+                font-size: 16rem;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="immunity"></p>
+        <script>
+            var start = 1618066800000;
+            var immune = 1621051200000;
+
+            function calculateProgress(now, start, end) {
+                var progress = (now - start) / (end - start);
+                progress = Math.min(1.0, progress);
+                progress = Math.max(0.0, progress);
+                return progress;
+            }
+
+            function calculateImmunity() {
+                return Math.round(calculateProgress(new Date().getTime(), start, immune) * 100.0);
+            }
+
+            function tick() {
+                var immunity = calculateImmunity();
+                var string = `${immunity}%`;
+                document.getElementById('immunity').innerText = string;
+            }
+
+            setInterval(tick, 1000);
+            tick();
+        </script>
+    </body>
+</html>
